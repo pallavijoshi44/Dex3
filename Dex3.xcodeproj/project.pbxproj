@@ -13,6 +13,8 @@
 		928060EB2CB6A3E800C437F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928060EA2CB6A3E800C437F9 /* Preview Assets.xcassets */; };
 		928060ED2CB6A3E800C437F9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928060EC2CB6A3E800C437F9 /* Persistence.swift */; };
 		928060F02CB6A3E800C437F9 /* Dex3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 928060EE2CB6A3E800C437F9 /* Dex3.xcdatamodeld */; };
+		928060F92CB6C40100C437F9 /* TempPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928060F82CB6C40100C437F9 /* TempPokemon.swift */; };
+		92BE6B932CB7C535009B555C /* FetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BE6B922CB7C535009B555C /* FetchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		928060EA2CB6A3E800C437F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		928060EC2CB6A3E800C437F9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		928060EF2CB6A3E800C437F9 /* Dex3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dex3.xcdatamodel; sourceTree = "<group>"; };
+		928060F82CB6C40100C437F9 /* TempPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPokemon.swift; sourceTree = "<group>"; };
+		92BE6B922CB7C535009B555C /* FetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				928060E32CB6A3E800C437F9 /* Dex3App.swift */,
+				92BE6B922CB7C535009B555C /* FetchService.swift */,
+				928060F82CB6C40100C437F9 /* TempPokemon.swift */,
 				928060E52CB6A3E800C437F9 /* ContentView.swift */,
-				928060E72CB6A3E800C437F9 /* Assets.xcassets */,
 				928060EC2CB6A3E800C437F9 /* Persistence.swift */,
+				928060E72CB6A3E800C437F9 /* Assets.xcassets */,
 				928060EE2CB6A3E800C437F9 /* Dex3.xcdatamodeld */,
 				928060E92CB6A3E800C437F9 /* Preview Content */,
 			);
@@ -145,7 +151,9 @@
 			files = (
 				928060ED2CB6A3E800C437F9 /* Persistence.swift in Sources */,
 				928060F02CB6A3E800C437F9 /* Dex3.xcdatamodeld in Sources */,
+				928060F92CB6C40100C437F9 /* TempPokemon.swift in Sources */,
 				928060E62CB6A3E800C437F9 /* ContentView.swift in Sources */,
+				92BE6B932CB7C535009B555C /* FetchService.swift in Sources */,
 				928060E42CB6A3E800C437F9 /* Dex3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
