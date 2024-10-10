@@ -17,7 +17,7 @@ class FetchService {
     
     let baseUrl = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     
-    func fetchTemporaryPokemon() async throws -> [TempPokemon] {
+    func fetchTemporaryPokemons() async throws -> [TempPokemon] {
         var tempPokemons : [TempPokemon] = []
 
         var fetchUrl = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)
