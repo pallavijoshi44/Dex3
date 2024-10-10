@@ -36,15 +36,8 @@ struct ContentView: View {
                 }
             }
             .navigationDestination(for: Pokemon.self, destination: { pokemon in
-                AsyncImage(url: pokemon.shiny, content: { image in
-                    image.resizable().scaledToFit()
-                }, placeholder: {
-                    ProgressView()
-                }).frame(width: 100, height: 100)
-                
-                Text(pokemon.name!)
+                PokemonDetail().environmentObject(pokemon)
             })
-           
         }
     }
 }
