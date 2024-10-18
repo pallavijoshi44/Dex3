@@ -58,19 +58,19 @@ struct TempPokemon: Codable {
         
         var decodedTypes: [String] = []
         var typesContainer = try container.nestedUnkeyedContainer(forKey: .types)
-        while typesContainer.isAtEnd {
-            var typeDictionaryContainer = try typesContainer.nestedContainer(keyedBy: PokemonKeys.TypesDictionaryKeys.self)
-            var typeContainer = try typeDictionaryContainer.nestedContainer(keyedBy: PokemonKeys.TypesDictionaryKeys.TypeKeys.self, forKey: .type)
+        while !typesContainer.isAtEnd {
+            let typeDictionaryContainer = try typesContainer.nestedContainer(keyedBy: PokemonKeys.TypesDictionaryKeys.self)
+            let typeContainer = try typeDictionaryContainer.nestedContainer(keyedBy: PokemonKeys.TypesDictionaryKeys.TypeKeys.self, forKey: .type)
             let typeValue: String = try typeContainer.decode(String.self, forKey: .name)
             decodedTypes.append(typeValue)
         }
         types = decodedTypes
         
         var statsContainer = try container.nestedUnkeyedContainer(forKey: .stats)
-        while statsContainer.isAtEnd {
-            var statsDictionaryContainer = try statsContainer.nestedContainer(keyedBy: PokemonKeys.StatsDictionaryKeys.self)
-            var statsContainer = try statsDictionaryContainer.nestedContainer(keyedBy: PokemonKeys.StatsDictionaryKeys.StatKeys.self, forKey: .stat)
-            var statName = try statsContainer.decode(String.self, forKey: .name)
+        while !statsContainer.isAtEnd {
+            let statsDictionaryContainer = try statsContainer.nestedContainer(keyedBy: PokemonKeys.StatsDictionaryKeys.self)
+            let statsContainer = try statsDictionaryContainer.nestedContainer(keyedBy: PokemonKeys.StatsDictionaryKeys.StatKeys.self, forKey: .stat)
+            let statName = try statsContainer.decode(String.self, forKey: .name)
             
             switch statName {
             case "hp": 
@@ -92,7 +92,7 @@ struct TempPokemon: Codable {
             }
         }
         
-        var spriteContainer =  try container.nestedContainer(keyedBy: PokemonKeys.SpriteDictionaryKeys.self, forKey: .sprites)
+        let spriteContainer =  try container.nestedContainer(keyedBy: PokemonKeys.SpriteDictionaryKeys.self, forKey: .sprites)
         shiny = try spriteContainer.decode(URL.self, forKey: .shiny)
         sprite = try spriteContainer.decode(URL.self, forKey: .sprite)
     }

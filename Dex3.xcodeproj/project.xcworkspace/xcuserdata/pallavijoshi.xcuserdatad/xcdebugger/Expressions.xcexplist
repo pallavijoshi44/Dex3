@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "PokemonChart.body.getter:PokemonChart.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pokemon">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TempPokemon.init(from:):TempPokemon.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "try container.nestedUnkeyedContainer()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

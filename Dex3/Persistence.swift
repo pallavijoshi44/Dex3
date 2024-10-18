@@ -24,7 +24,7 @@ struct PersistenceController {
         samplePokemon.specialAttack = 55
         samplePokemon.specialDefense = 65
         samplePokemon.speed = 45
-        samplePokemon.favorite = false
+        samplePokemon.favorite = true
         samplePokemon.sprite = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png")
         samplePokemon.shiny = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/transparent/back/shiny/1.png")
         

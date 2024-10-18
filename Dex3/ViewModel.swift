@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 @MainActor
 class ViewModel: ObservableObject {
@@ -30,14 +31,20 @@ class ViewModel: ObservableObject {
     private func getPokemons() async {
         status = .fetching
         do {
-            var pokemonList = try await fetchService.fetchTemporaryPokemons()
+            
+            guard var pokemonList = try await fetchService.fetchTemporaryPokemons(),  pokemonList != nil else {
+                status = .success
+                return
+            }
+            
             pokemonList.sort { $0.id < $1.id }
                        
             for tempPokemon in pokemonList {
-                let pokemon = Pokemon(context: PersistenceController.preview.container.viewContext)
+                let pokemon = Pokemon(context: PersistenceController.shared.container.viewContext)
                 pokemon.id = Int16(tempPokemon.id)
                 pokemon.name = tempPokemon.name
                 pokemon.types = tempPokemon.types
+                pokemon.organizedTypes()
                 pokemon.hp = Int16(tempPokemon.hp)
                 pokemon.attack = Int16(tempPokemon.attack)
                 pokemon.defense = Int16(tempPokemon.defense)
@@ -48,7 +55,7 @@ class ViewModel: ObservableObject {
                 pokemon.sprite = tempPokemon.sprite
                 pokemon.shiny = tempPokemon.shiny
                 
-                try PersistenceController.preview.container.viewContext.save()
+                try PersistenceController.shared.container.viewContext.save()
             }
             status = Status.success
         } catch {

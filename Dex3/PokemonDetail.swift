@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct PokemonDetail: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var pokemon: Pokemon
     @State var shiny: Bool = false
     
     var body: some View {
         ScrollView {
                 ZStack {
-                    Image("normalgrasselectricpoisonfairy")
+                    Image(pokemon.background)
                         .resizable()
                         .scaledToFit()
                         .shadow(color: .black, radius: 7)
@@ -47,6 +49,24 @@ struct PokemonDetail: View {
                         
                     }
                     Spacer()
+
+                    Button(action: {
+                        withAnimation {
+                            pokemon.favorite.toggle()
+                            do {
+                                try viewContext.save()
+                            } catch {
+                                let nsError = error as NSError
+                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                            }
+                        }
+                    }, label: {
+                        Image(systemName: pokemon.favorite ? "star.fill" : "star")
+                            .foregroundColor(.yellow)
+                            .font(.title)
+                    })
+                    
+                    
                 }.padding()
             
             Text("Stats")
